@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+
+<!-- ═══════════════════════════════════════════════════
+     BANDO EXPRESS — Blogger Template
+     Vifurushi vya Internet | Dar es Salaam
+     ═══════════════════════════════════════════════════ -->
+
+<head>
+  <meta charset='UTF-8'/>
+  <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+  <b:include data='blog' name='all-head-content'/>
+  <title><data:blog.pageTitle/></title>
+
+  <!-- Google Fonts -->
+  <link href='https://fonts.googleapis.com/css2?family=Syne:wght@700;800&amp;family=DM+Sans:wght@400;500;600&amp;display=swap' rel='stylesheet'/>
+
+  <b:skin><![CDATA[
+
+/* ══════════════════════════════════════════
+   BANDO EXPRESS — CSS
+   ══════════════════════════════════════════ */
+
+/* ── VARIABLES ── */
+:root {
+  --blue-deep:   #0A1628;
+  --blue-mid:    #1040A0;
+  --blue-bright: #1A6FFF;
+  --blue-sky:    #4DAAFF;
+  --white:       #FFFFFF;
+  --grey-light:  #EEF4FF;
+  --grey-text:   #6B7FA8;
+  --accent:      #FFD740;
+}
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html  { scroll-behavior: smooth; }
+body  {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--blue-deep);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ── Hide default Blogger elements ── */
+.navbar-iframe, #navbar-iframe { display: none !important; }
+
+/* ══════════════
+   NAV
+══════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.2rem 6%;
+  background: rgba(10,22,40,0.85);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.logo {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.6rem; font-weight: 800;
+  color: var(--white); letter-spacing: -0.5px;
+  text-decoration: none;
+}
+.logo span { color: var(--blue-sky); }
+nav ul { list-style: none; display: flex; gap: 2.5rem; }
+nav ul a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-weight: 500; font-size: 0.95rem;
+  transition: color .2s;
+}
+nav ul a:hover { color: var(--white); }
+.nav-btn {
+  background: var(--blue-bright); color: var(--white);
+  border: none; cursor: pointer;
+  padding: .6rem 1.4rem; border-radius: 50px;
+  font-weight: 600; font-size: 0.9rem;
+  transition: background .2s, transform .15s;
+  text-decoration: none; display: inline-block;
+}
+.nav-btn:hover { background: var(--blue-sky); transform: scale(1.04); }
+
+/* ══════════════
+   HERO
+══════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 9rem 6% 5rem;
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(26,111,255,0.22) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 20% 80%, rgba(77,170,255,0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.rings {
+  position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
+  width: 420px; height: 420px; pointer-events: none;
+}
+.ring {
+  position: absolute; border-radius: 50%;
+  border: 1.5px solid rgba(77,170,255,0.25);
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+  animation: pulse-ring 3s ease-out infinite;
+}
+.ring:nth-child(1){ width:100px; height:100px; background:rgba(26,111,255,0.18); border-color:rgba(77,170,255,0.5); animation-delay:0s; }
+.ring:nth-child(2){ width:200px; height:200px; animation-delay:.6s; }
+.ring:nth-child(3){ width:310px; height:310px; animation-delay:1.2s; }
+.ring:nth-child(4){ width:420px; height:420px; animation-delay:1.8s; }
+@keyframes pulse-ring {
+  0%   { opacity: 1; }
+  70%  { opacity: 0.3; }
+  100% { opacity: 0; transform: translate(-50%,-50%) scale(1.05); }
+}
+.wifi-icon {
+  position: absolute; top:50%; left:50%;
+  transform: translate(-50%,-50%); font-size: 2.8rem;
+}
+.hero-content { position: relative; max-width: 580px; }
+.badge {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: rgba(26,111,255,0.15);
+  border: 1px solid rgba(77,170,255,0.35);
+  color: var(--blue-sky);
+  padding: .35rem 1rem; border-radius: 50px;
+  font-size: .82rem; font-weight: 600; letter-spacing: .5px;
+  margin-bottom: 1.5rem;
+  animation: fadeUp .7s ease both;
+}
+h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800; line-height: 1.1;
+  margin-bottom: 1.2rem;
+  animation: fadeUp .7s ease .1s both;
+}
+h1 em { font-style: normal; color: var(--blue-sky); }
+.hero-sub {
+  color: var(--grey-text); font-size: 1.1rem; line-height: 1.7;
+  margin-bottom: 2.2rem;
+  animation: fadeUp .7s ease .2s both;
+}
+.hero-btns {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  animation: fadeUp .7s ease .3s both;
+}
+.btn-primary {
+  background: var(--blue-bright); color: var(--white);
+  border: none; cursor: pointer;
+  padding: .9rem 2rem; border-radius: 50px;
+  font-weight: 700; font-size: 1rem;
+  transition: background .2s, transform .15s, box-shadow .2s;
+  box-shadow: 0 6px 24px rgba(26,111,255,0.4);
+  text-decoration: none; display: inline-block;
+}
+.btn-primary:hover { background:#1259e0; transform:translateY(-2px); box-shadow:0 10px 30px rgba(26,111,255,0.5); }
+.btn-outline {
+  background: transparent; color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.3);
+  cursor: pointer; padding: .9rem 2rem; border-radius: 50px;
+  font-weight: 600; font-size: 1rem;
+  transition: border-color .2s, background .2s;
+  text-decoration: none; display: inline-block;
+}
+.btn-outline:hover { border-color: var(--blue-sky); background: rgba(77,170,255,0.08); }
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(28px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ══════════════
+   STATS
+══════════════ */
+.stats {
+  display: flex; gap: 2.5rem; flex-wrap: wrap;
+  padding: 2.5rem 6%;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.stat { text-align: center; flex: 1; min-width: 120px; }
+.stat-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 2.2rem; font-weight: 800; color: var(--blue-sky);
+}
+.stat-label { font-size: .85rem; color: var(--grey-text); margin-top: .2rem; }
+
+/* ══════════════
+   SECTIONS SHARED
+══════════════ */
+section { padding: 5rem 6%; }
+.section-tag {
+  display: inline-block; color: var(--blue-sky);
+  font-size: .8rem; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: .8rem;
+}
+h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 800; line-height: 1.15; margin-bottom: 1rem;
+}
+.section-sub { color: var(--grey-text); font-size: 1rem; line-height: 1.7; max-width: 520px; }
+
+/* ══════════════
+   PACKAGES
+══════════════ */
+#packages { background: rgba(255,255,255,0.02); }
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem; margin-top: 3rem;
+}
+.pkg-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px; padding: 2rem;
+  transition: transform .25s, border-color .25s, box-shadow .25s;
+  position: relative; overflow: hidden;
+}
+.pkg-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(77,170,255,0.4);
+  box-shadow: 0 16px 48px rgba(26,111,255,0.18);
+}
+.pkg-card.featured {
+  border-color: var(--blue-bright);
+  background: linear-gradient(135deg, rgba(26,111,255,0.15), rgba(77,170,255,0.08));
+}
+.featured-badge {
+  position: absolute; top: 1.2rem; right: 1.2rem;
+  background: var(--accent); color: #000;
+  font-size: .72rem; font-weight: 800;
+  padding: .2rem .7rem; border-radius: 50px; letter-spacing: .5px;
+}
+.pkg-name { font-family:'Syne',sans-serif; font-size:1.2rem; font-weight:700; margin-bottom:.5rem; }
+.pkg-speed {
+  font-size: 2.4rem; font-weight: 800; color: var(--blue-sky);
+  font-family: 'Syne', sans-serif; line-height: 1;
+}
+.pkg-speed span { font-size:1rem; color:var(--grey-text); font-family:'DM Sans',sans-serif; font-weight:400; }
+.pkg-price { margin:1rem 0; font-size:1.5rem; font-weight:700; color:var(--white); }
+.pkg-price small { font-size:.85rem; color:var(--grey-text); font-weight:400; }
+.pkg-features { list-style:none; margin:1rem 0 1.5rem; }
+.pkg-features li {
+  display:flex; align-items:center; gap:.6rem;
+  font-size:.9rem; color:rgba(255,255,255,0.75);
+  padding:.3rem 0; border-bottom:1px solid rgba(255,255,255,0.05);
+}
+.pkg-features li::before { content:"✓"; color:var(--blue-sky); font-weight:700; }
+.pkg-btn {
+  width:100%; padding:.8rem; border-radius:50px;
+  border:1.5px solid var(--blue-bright);
+  background:transparent; color:var(--white);
+  font-weight:700; cursor:pointer; font-size:.95rem;
+  transition:background .2s, color .2s;
+}
+.pkg-btn:hover, .pkg-card.featured .pkg-btn {
+  background:var(--blue-bright); color:var(--white);
+}
+
+/* ══════════════
+   GALLERY
+══════════════ */
+.gallery-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1rem; margin-top: 2.5rem;
+}
+.gal-item {
+  border-radius: 16px; overflow: hidden;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  aspect-ratio: 4/3;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3.5rem; transition: transform .3s; position: relative;
+}
+.gal-item:hover { transform: scale(1.02); }
+.gal-item:first-child { grid-column: span 2; aspect-ratio: 16/7; }
+.gal-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10,22,40,0.85) 0%, transparent 60%);
+  display: flex; align-items: flex-end; padding: 1.2rem;
+  opacity: 0; transition: opacity .3s;
+}
+.gal-item:hover .gal-overlay { opacity: 1; }
+.gal-overlay p { font-size: .9rem; font-weight: 600; }
+
+/* ══════════════
+   WHY US
+══════════════ */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem; margin-top: 2.5rem;
+}
+.why-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px; padding: 1.8rem;
+  transition: border-color .2s, background .2s;
+}
+.why-card:hover { border-color:rgba(77,170,255,0.3); background:rgba(26,111,255,0.07); }
+.why-icon { font-size: 2rem; margin-bottom: 1rem; }
+.why-card h3 { font-family:'Syne',sans-serif; font-size:1.05rem; margin-bottom:.5rem; }
+.why-card p  { font-size:.88rem; color:var(--grey-text); line-height:1.6; }
+
+/* ══════════════
+   CONTACT
+══════════════ */
+#contact { background: rgba(255,255,255,0.02); }
+.contact-wrap {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; margin-top: 2.5rem; align-items: start;
+}
+.contact-info p { color:var(--grey-text); line-height:1.8; margin-bottom:1.5rem; }
+.contact-link {
+  display: flex; align-items: center; gap: .8rem;
+  color: var(--white); text-decoration: none;
+  padding: .8rem 1rem; border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px; margin-bottom: .8rem;
+  transition: border-color .2s, background .2s; font-weight: 500;
+}
+.contact-link:hover { border-color:var(--blue-sky); background:rgba(77,170,255,0.07); }
+.contact-link .icon { font-size: 1.3rem; }
+.contact-form { display:flex; flex-direction:column; gap:1rem; }
+.form-group   { display:flex; flex-direction:column; gap:.4rem; }
+.form-group label { font-size:.85rem; color:rgba(255,255,255,0.6); font-weight:500; }
+.form-group input,
+.form-group textarea,
+.form-group select {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px; padding: .85rem 1rem;
+  color: var(--white); font-family:'DM Sans',sans-serif;
+  font-size: .95rem; transition: border-color .2s; outline: none;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus { border-color: var(--blue-bright); }
+.form-group textarea { resize:vertical; min-height:110px; }
+.form-group select option { background: var(--blue-deep); }
+.submit-btn {
+  background: var(--blue-bright); color: var(--white);
+  border: none; cursor: pointer; padding: 1rem 2rem;
+  border-radius: 50px; font-weight: 700; font-size: 1rem;
+  transition: background .2s, transform .15s;
+  box-shadow: 0 6px 20px rgba(26,111,255,0.35);
+}
+.submit-btn:hover { background:#1259e0; transform:translateY(-2px); }
+.success-msg {
+  display: none; background: rgba(26,111,255,0.15);
+  border: 1px solid rgba(77,170,255,0.4);
+  border-radius: 10px; padding: 1rem 1.2rem;
+  color: var(--blue-sky); font-weight: 600; text-align: center;
+}
+
+/* ══════════════
+   SOCIAL BAR
+══════════════ */
+.social-bar {
+  display: flex; justify-content: center; align-items: center;
+  gap: 1rem; padding: 2rem 6%;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  flex-wrap: wrap;
+}
+.social-bar span { color:var(--grey-text); font-size:.9rem; margin-right:.5rem; }
+.soc-btn {
+  display: flex; align-items: center; gap: .6rem;
+  padding: .65rem 1.3rem; border-radius: 50px;
+  font-weight: 600; font-size: .9rem;
+  text-decoration: none; transition: transform .2s, opacity .2s;
+}
+.soc-btn:hover { transform: scale(1.06); opacity: .9; }
+.soc-whatsapp  { background:#25D366; color:#fff; }
+.soc-facebook  { background:#1877F2; color:#fff; }
+.soc-instagram { background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color:#fff; }
+.soc-tiktok    { background:#010101; color:#fff; border:1px solid #333; }
+
+/* ══════════════
+   FOOTER
+══════════════ */
+footer.be-footer {
+  text-align: center; padding: 2rem 6%;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  color: var(--grey-text); font-size: .85rem;
+}
+footer.be-footer p + p { margin-top: .4rem; font-size: .78rem; }
+footer.be-footer strong { color: var(--blue-sky); }
+
+/* ══════════════
+   RESPONSIVE
+══════════════ */
+@media (max-width: 768px) {
+  nav ul        { display: none; }
+  .rings        { display: none; }
+  .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-grid .gal-item:first-child { grid-column: span 2; }
+  .stats        { justify-content: center; }
+}
+
+  ]]></b:skin>
+</head>
+
+<body>
+
+  <!-- ══ BLOGGER: Required widget section (hidden) ══ -->
+  <b:section id='header' name='Header' showaddelement='no'>
+    <b:widget id='Header1' locked='true' title='Bando Express' type='Header'/>
+  </b:section>
+
+  <!-- ══ NAV ══ -->
+  <nav>
+    <a class='logo' href='/'> Bando<span>Express</span></a>
+    <ul>
+      <li><a href='#packages'>Vifurushi</a></li>
+      <li><a href='#gallery'>Picha</a></li>
+      <li><a href='#why'>Sisi Ni Nani</a></li>
+      <li><a href='#contact'>Wasiliana</a></li>
+    </ul>
+    <a class='nav-btn' href='#contact'>Agiza Sasa</a>
+  </nav>
+
+  <!-- ══ MAIN CONTENT ══ -->
+  <b:section id='main' name='Main' showaddelement='yes'>
+  <b:widget id='HTML1' locked='false' title='Bando Express Content' type='HTML'>
+  <b:widget-settings>
+  <b:widget-setting name='content'>
+
+  <!-- ══ HERO ══ -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="rings">
+      <div class="ring"></div>
+      <div class="ring"></div>
+      <div class="ring"></div>
+      <div class="ring"></div>
+      <div class="wifi-icon">📶</div>
+    </div>
+    <div class="hero-content">
+      <div class="badge">🚀 Dar es Salaam &amp; Maeneo Yote</div>
+      <h1>Internet ya Haraka.<br/><em>Bei Nafuu.</em><br/>Kwa Kila Mtu.</h1>
+      <p class="hero-sub">
+        Bando Express inakupa vifurushi vya internet vya kasi ya juu kwa bei unayomudu.
+        Unganika leo — bila shida, bila muda mrefu wa kusubiri.
+      </p>
+      <div class="hero-btns">
+        <a class="btn-primary" href="#packages">Ona Vifurushi 📦</a>
+        <a class="btn-outline" href="#contact">Wasiliana Nasi</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ STATS ══ -->
+  <div class="stats">
+    <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Wateja Wanaoridhika</div></div>
+    <div class="stat"><div class="stat-num">99.9%</div><div class="stat-label">Uptime wa Mtandao</div></div>
+    <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Huduma ya Msaada</div></div>
+    <div class="stat"><div class="stat-num">5+</div><div class="stat-label">Miaka ya Uzoefu</div></div>
+  </div>
+
+  <!-- ══ PACKAGES ══ -->
+  <section id="packages">
+    <div class="section-tag">📦 Vifurushi Vyetu</div>
+    <h2>Chagua Kifurushi<br/>Kinachokufaa</h2>
+    <p class="section-sub">Vifurushi vyote vinajumuisha ufungaji bila malipo na msaada wa haraka.</p>
+    <div class="packages-grid">
+
+      <div class="pkg-card">
+        <div class="pkg-name">Starter</div>
+        <div class="pkg-speed">10<span>Mbps</span></div>
+        <div class="pkg-price">TZS 15,000 <small>/mwezi</small></div>
+        <ul class="pkg-features">
+          <li>Kasi ya 10 Mbps</li>
+          <li>Vyumba 1–2 vya kulala</li>
+          <li>Social media &amp; WhatsApp</li>
+          <li>Msaada 24/7</li>
+        </ul>
+        <button class="pkg-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Agiza Sasa</button>
+      </div>
+
+      <div class="pkg-card featured">
+        <div class="featured-badge">⭐ MAARUFU</div>
+        <div class="pkg-name">Standard</div>
+        <div class="pkg-speed">25<span>Mbps</span></div>
+        <div class="pkg-price">TZS 30,000 <small>/mwezi</small></div>
+        <ul class="pkg-features">
+          <li>Kasi ya 25 Mbps</li>
+          <li>Familia ya watu 4–6</li>
+          <li>Video &amp; YouTube bila buffer</li>
+          <li>Online gaming</li>
+          <li>Msaada 24/7</li>
+        </ul>
+        <button class="pkg-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Agiza Sasa</button>
+      </div>
+
+      <div class="pkg-card">
+        <div class="pkg-name">Business</div>
+        <div class="pkg-speed">50<span>Mbps</span></div>
+        <div class="pkg-price">TZS 55,000 <small>/mwezi</small></div>
+        <ul class="pkg-features">
+          <li>Kasi ya 50 Mbps</li>
+          <li>Ofisi &amp; biashara</li>
+          <li>Video calls bila tatizo</li>
+          <li>Cloud &amp; backup</li>
+          <li>IP ya kudumu</li>
+          <li>Msaada wa VIP</li>
+        </ul>
+        <button class="pkg-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Agiza Sasa</button>
+      </div>
+
+      <div class="pkg-card">
+        <div class="pkg-name">Ultra</div>
+        <div class="pkg-speed">100<span>Mbps</span></div>
+        <div class="pkg-price">TZS 90,000 <small>/mwezi</small></div>
+        <ul class="pkg-features">
+          <li>Kasi ya 100 Mbps</li>
+          <li>Kampuni kubwa</li>
+          <li>4K streaming</li>
+          <li>Seva ya bei maalum</li>
+          <li>SLA ya kukubaliana</li>
+          <li>Msaada wa haraka sana</li>
+        </ul>
+        <button class="pkg-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Agiza Sasa</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ GALLERY ══ -->
+  <section id="gallery">
+    <div class="section-tag">📸 Matukio &amp; Kazi Zetu</div>
+    <h2>Tunaona Kwa Macho</h2>
+    <p class="section-sub">Ufungaji wa vifaa bora, wateja wanaoridhika, na timu yetu yenye uzoefu.</p>
+    <div class="gallery-grid">
+      <div class="gal-item" style="background:linear-gradient(135deg,rgba(26,111,255,0.2),rgba(10,22,40,0.9));">
+        🛠️<div class="gal-overlay"><p>Timu yetu kazini — ufungaji wa haraka</p></div>
+      </div>
+      <div class="gal-item" style="background:linear-gradient(135deg,rgba(77,170,255,0.15),rgba(10,22,40,0.9));">
+        📡<div class="gal-overlay"><p>Antena za kisasa</p></div>
+      </div>
+      <div class="gal-item" style="background:linear-gradient(135deg,rgba(26,111,255,0.25),rgba(10,22,40,0.8));">
+        🏠<div class="gal-overlay"><p>Ufungaji wa nyumbani</p></div>
+      </div>
+      <div class="gal-item" style="background:linear-gradient(135deg,rgba(77,170,255,0.2),rgba(10,22,40,0.9));">
+        💼<div class="gal-overlay"><p>Mtandao wa ofisi</p></div>
+      </div>
+      <div class="gal-item" style="background:linear-gradient(135deg,rgba(26,111,255,0.18),rgba(10,22,40,0.85));">
+        😊<div class="gal-overlay"><p>Wateja wanaofurahi</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ WHY US ══ -->
+  <section id="why">
+    <div class="section-tag">💡 Kwa Nini Sisi</div>
+    <h2>Tofauti na Wengine</h2>
+    <p class="section-sub">Tunajua una chaguo nyingi. Hapa kwa nini Bando Express ni bora zaidi.</p>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon">⚡</div><h3>Kasi ya Kweli</h3><p>Tunakupa kasi uliyolipia — hakuna kupunguza wakati wa mzigo mkubwa.</p></div>
+      <div class="why-card"><div class="why-icon">🔧</div><h3>Ufungaji Haraka</h3><p>Tunafunga ndani ya saa 24 baada ya kukubaliana — bila kuchelewa.</p></div>
+      <div class="why-card"><div class="why-icon">📞</div><h3>Msaada 24/7</h3><p>Timu yetu ipo saa zote kwa simu, WhatsApp, au ujumbe.</p></div>
+      <div class="why-card"><div class="why-icon">💰</div><h3>Bei Nafuu</h3><p>Vifurushi bora zaidi kwa bei unayomudu — hakuna malipo ya siri.</p></div>
+      <div class="why-card"><div class="why-icon">🔒</div><h3>Mtandao Salama</h3><p>Usalama wa hali ya juu — data yako na familia yako wanalindwa.</p></div>
+      <div class="why-card"><div class="why-icon">🌍</div><h3>Maeneo Mengi</h3><p>Tunasambaza Dar es Salaam na maeneo yanayokuzunguka.</p></div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT ══ -->
+  <section id="contact">
+    <div class="section-tag">📬 Wasiliana Nasi</div>
+    <h2>Anza Leo —<br/>Ni Rahisi</h2>
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <p>Una swali? Unataka kuagiza kifurushi? Tuma ujumbe au piga simu — tutakujibu haraka iwezekanavyo.</p>
+        <a class="contact-link" href="tel:+255700000000"><span class="icon">📞</span> +255 700 000 000</a>
+        <a class="contact-link" href="mailto:info@bandoexpress.co.tz"><span class="icon">✉️</span> info@bandoexpress.co.tz</a>
+        <a class="contact-link" href="https://wa.me/255700000000" target="_blank"><span class="icon">💬</span> WhatsApp: +255 700 000 000</a>
+        <a class="contact-link" href="#"><span class="icon">📍</span> Dar es Salaam, Tanzania</a>
+      </div>
+      <div class="contact-form">
+        <div class="form-group">
+          <label>Jina lako kamili</label>
+          <input id="fname" placeholder="Mfano: Amina Hassan" type="text"/>
+        </div>
+        <div class="form-group">
+          <label>Namba ya simu</label>
+          <input id="fphone" placeholder="+255 7XX XXX XXX" type="tel"/>
+        </div>
+        <div class="form-group">
+          <label>Kifurushi unachotaka</label>
+          <select id="fpkg">
+            <option value="">-- Chagua kifurushi --</option>
+            <option>Starter – 10 Mbps (TZS 15,000/mwezi)</option>
+            <option>Standard – 25 Mbps (TZS 30,000/mwezi)</option>
+            <option>Business – 50 Mbps (TZS 55,000/mwezi)</option>
+            <option>Ultra – 100 Mbps (TZS 90,000/mwezi)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mtaa / Eneo lako</label>
+          <input id="farea" placeholder="Mfano: Mbagala, Kigamboni..." type="text"/>
+        </div>
+        <div class="form-group">
+          <label>Ujumbe (hiari)</label>
+          <textarea id="fmsg" placeholder="Andika swali lako hapa..."></textarea>
+        </div>
+        <button class="submit-btn" onclick="submitForm()">Tuma Ombi 🚀</button>
+        <div class="success-msg" id="successMsg">✅ Asante! Tutakupigia simu hivi karibuni.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SOCIAL BAR ══ -->
+  <div class="social-bar">
+    <span>Tufuate:</span>
+    <a class="soc-btn soc-whatsapp" href="https://wa.me/255700000000" target="_blank">💬 WhatsApp</a>
+    <a class="soc-btn soc-facebook" href="#">📘 Facebook</a>
+    <a class="soc-btn soc-instagram" href="#">📸 Instagram</a>
+    <a class="soc-btn soc-tiktok" href="#">🎵 TikTok</a>
+  </div>
+
+  </b:widget-setting>
+  </b:widget-settings>
+  </b:widget>
+  </b:section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class='be-footer'>
+    <p>&#169; 2025 <strong>Bando Express</strong> &#183; Vifurushi vya Internet &#183; Dar es Salaam, Tanzania</p>
+    <p>Haki zote zimehifadhiwa.</p>
+  </footer>
+
+  <!-- ══ JAVASCRIPT ══ -->
+  <script type='text/javascript'>
+  //<![CDATA[
+
+  /* ── 1. ACTIVE NAV HIGHLIGHT ON SCROLL ── */
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks  = document.querySelectorAll('nav ul a');
+
+  window.addEventListener('scroll', function() {
+    var current = '';
+    sections.forEach(function(s) {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(function(a) {
+      a.style.color = a.getAttribute('href') === '#' + current
+        ? 'var(--blue-sky)' : '';
+    });
+  });
+
+  /* ── 2. CONTACT FORM SUBMIT ── */
+  function submitForm() {
+    var name  = document.getElementById('fname').value.trim();
+    var phone = document.getElementById('fphone').value.trim();
+    var pkg   = document.getElementById('fpkg').value;
+
+    if (!name || !phone || !pkg) {
+      alert('Tafadhali jaza jina, namba ya simu, na kifurushi.');
+      return;
+    }
+
+    var msg = document.getElementById('successMsg');
+    msg.style.display = 'block';
+
+    ['fname','fphone','fpkg','farea','fmsg'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.value = '';
+    });
+
+    setTimeout(function() { msg.style.display = 'none'; }, 5000);
+  }
+
+  /* ── 3. SCROLL-REVEAL ANIMATION FOR CARDS ── */
+  if ('IntersectionObserver' in window) {
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity   = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.pkg-card, .why-card').forEach(function(el) {
+      el.style.opacity    = '0';
+      el.style.transform  = 'translateY(30px)';
+      el.style.transition = 'opacity .6s ease, transform .6s ease, border-color .25s, box-shadow .25s, background .2s';
+      revealObserver.observe(el);
+    });
+  }
+
+  /* ── 4. SMOOTH SCROLL NAV BUTTON ── */
+  document.querySelector('.nav-btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  //]]>
+  </script>
+
+</body>
+</html>
